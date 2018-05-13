@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GX.DataLayer", "GX.DataLaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoDataLayer", "AdoDataLayer\AdoDataLayer.csproj", "{DDA5F925-13B3-42FA-B579-8C978F7BBE76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoDataLayerUnitTests", "AdoDataLayerUnitTests\AdoDataLayerUnitTests.csproj", "{4B8C9276-7F4A-4580-860A-D1F06CEF35BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{98CD541A-A659-4CAE-B19C-85195758BC2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,15 @@ Global
 		{DDA5F925-13B3-42FA-B579-8C978F7BBE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDA5F925-13B3-42FA-B579-8C978F7BBE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDA5F925-13B3-42FA-B579-8C978F7BBE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8C9276-7F4A-4580-860A-D1F06CEF35BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8C9276-7F4A-4580-860A-D1F06CEF35BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8C9276-7F4A-4580-860A-D1F06CEF35BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8C9276-7F4A-4580-860A-D1F06CEF35BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B8C9276-7F4A-4580-860A-D1F06CEF35BE} = {98CD541A-A659-4CAE-B19C-85195758BC2F}
 	EndGlobalSection
 EndGlobal

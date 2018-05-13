@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
 using System.Data.OleDb;
@@ -8,10 +9,17 @@ namespace AdoDataLayer
 {
     public static class DbManagerFactory
     {
+        public static DataProvider Validate(this DataProvider value)
+        {
+            if(!Enum.IsDefined(typeof(DataProvider), value)) throw new InvalidEnumArgumentException("DataProivder must be defined");
+
+            return value;
+        }
+
         public static IDbConnection GetConnection(DataProvider providerType)
         {
             IDbConnection iDbConnection;
-            switch (providerType)
+            switch (providerType.Validate())
             {
                 case DataProvider.SqlServer:
                     iDbConnection = new SqlConnection();
@@ -29,9 +37,10 @@ namespace AdoDataLayer
             }
             return iDbConnection;
         }
+
         public static IDbCommand GetCommand(DataProvider providerType)
         {
-            switch (providerType)
+            switch (providerType.Validate())
             {
                 case DataProvider.SqlServer:
                     return new SqlCommand();
@@ -45,9 +54,10 @@ namespace AdoDataLayer
                     return null;
             }
         }
+
         public static IDbDataAdapter GetDataAdapter(DataProvider providerType)
         {
-            switch (providerType)
+            switch (providerType.Validate())
             {
                 case DataProvider.SqlServer:
                     return new SqlDataAdapter();
@@ -61,16 +71,18 @@ namespace AdoDataLayer
                     return null;
             }
         }
-        public static IDbTransaction GetTransaction(DataProvider providerType)
+
+        public static IDbTransaction GetTransaction(IDbConnection connection)
         {
-            IDbConnection iDbConnection = GetConnection(providerType);
-            IDbTransaction iDbTransaction = iDbConnection.BeginTransaction();
+            if(connection == null) throw new ArgumentNullException("Connection cannot be null");
+            IDbTransaction iDbTransaction = connection.BeginTransaction();
             return iDbTransaction;
         }
+
         public static IDataParameter GetParameter(DataProvider providerType)
         {
             IDataParameter iDataParameter = null;
-            switch (providerType)
+            switch (providerType.Validate())
             {
                 case DataProvider.SqlServer:
                     iDataParameter = new SqlParameter();

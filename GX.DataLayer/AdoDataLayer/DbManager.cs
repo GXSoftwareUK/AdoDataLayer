@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 
@@ -19,7 +20,16 @@ namespace AdoDataLayer
             ConnectionString = connectionString;
         }
 
-        public IDbConnection Connection { get; private set; }
+        public IDbConnection Connection
+        {
+            get
+            {
+                if (_connection == null) throw new ArgumentNullException("Connection cannot be null");
+                return _connection;
+            }
+            private set { _connection = value; }
+
+        }
 
         public IDataReader DataReader { get; set; }
 
@@ -58,7 +68,7 @@ namespace AdoDataLayer
         public void BeginTransaction()
         {
             if (Transaction == null)
-                Transaction = DbManagerFactory.GetTransaction(ProviderType);
+                Transaction = DbManagerFactory.GetTransaction(Connection);
             _idbCommand.Transaction = Transaction;
         }
 
@@ -163,6 +173,7 @@ namespace AdoDataLayer
 
         #region IDisposable Support
         private bool _disposedValue = false; // To detect redundant calls
+        private IDbConnection _connection;
 
         void Dispose(bool disposing)
         {
