@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GX.DataLayer")]
+[assembly: AssemblyTitle("AdoDataLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GX.DataLayer")]
+[assembly: AssemblyProduct("AdoDataLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("42604ceb-6163-413f-9461-087e1772f8f0")]
+[assembly: Guid("dda5f925-13b3-42fa-b579-8c978f7bbe76")]
 
 // Version information for an assembly consists of the following four values:
 //
